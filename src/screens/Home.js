@@ -1,33 +1,30 @@
-import React, { Component } from 'react';
-import { Container, Card } from 'react-bootstrap'
+import React from 'react';
+import { Container } from 'react-bootstrap'
 
-import { paragraphs } from '../assets/paragraphs'
+import PostListing from '../components/PostListing'
 
-export default class Home extends Component {
-  cards  = []
+import { posts } from '../assets/paragraphs'
+
+export default class Home extends React.Component {
+  posts = []
 
   componentWillMount = () => {
-    for (let item of Object.values(paragraphs)) {
-      this.cards.push(this.renderItem(item))
+    for (let item of Object.values(posts)) {
+      this.posts.push(this.renderItem(item))
     }
+    console.log(this.posts)
   }
 
   renderItem = item => {
     return (
-      <Card>
-        <Card.Body>
-          <Card.Text>
-            {item}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <PostListing item={item} />
     )
   }
 
   render() {
     return (
       <Container>
-        {!!this.cards && this.cards}
+        {!!this.posts && this.posts}
       </Container>
     );
   }

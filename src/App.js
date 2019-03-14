@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Components
 import Home from './screens/Home'
-import Posts from './screens/Posts'
+import Post from './screens/Post'
 
 class App extends Component {
   render() {
@@ -17,12 +17,11 @@ class App extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/posts">Posts</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
           <Route path="/" exact component={Home} />
-          <Route path="posts" component={Posts} />
+          <Route path="/post/:id" component={Post} />
         </div>
       </Router>
     )
